@@ -151,20 +151,22 @@ class AssetDirectory
     {
         $name = basename($file);
 
+        return $name;
+
         if (!file_exists($this->directory.'/'.$name)) {
             return $name;
         }
+        //For now we want to overwrite....
+        // $dotPos = strrpos($name, '.');
+        // $prefix = substr($name, 0, $dotPos);
+        // $suffix = substr($name, $dotPos);
 
-        $dotPos = strrpos($name, '.');
-        $prefix = substr($name, 0, $dotPos);
-        $suffix = substr($name, $dotPos);
+        // $count = 1;
+        // do {
+        //     $name = $prefix.'_'.$count.$suffix;
+        //     $count++;
+        // } while (file_exists($this->directory.'/'.$name));
 
-        $count = 1;
-        do {
-            $name = $prefix.'_'.$count.$suffix;
-            $count++;
-        } while (file_exists($this->directory.'/'.$name));
-
-        return $name;
+        // return $name;
     }
 }
